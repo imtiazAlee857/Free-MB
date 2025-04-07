@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>36 GB Free Data</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .container {
+      background: #fff;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+      width: 90%;
+      max-width: 500px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 8px;
+      background: linear-gradient(90deg, #4CAF50, #2196F3);
+    }
+
+    h1 {
+      font-size: 28px;
+      color: #2c3e50;
+      margin-bottom: 15px;
+      font-weight: 600;
+    }
+
+    p {
+      font-size: 16px;
+      margin-bottom: 20px;
+      color: #34495e;
+      line-height: 1.6;
+    }
+
+    .button {
+      background: linear-gradient(145deg, #2196F3, #4CAF50);
+      color: #fff;
+      padding: 14px 25px;
+      font-size: 18px;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      margin: 12px 5px;
+      box-shadow: 0 5px 15px rgba(33, 150, 243, 0.3);
+      transition: all 0.3s ease;
+      display: inline-block;
+      text-decoration: none;
+      font-weight: 500;
+      min-width: 200px;
+    }
+
+    .button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(33, 150, 243, 0.4);
+    }
+
+    .button:active {
+      transform: translateY(1px);
+    }
+
+    .button:disabled {
+      background: #95a5a6;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+
+    #congratulationsMessage, #numberForm {
+      display: none;
+      margin-top: 20px;
+    }
+
+    input[type="text"] {
+      padding: 12px 15px;
+      border-radius: 10px;
+      border: 2px solid #ecf0f1;
+      width: 80%;
+      margin: 15px 0;
+      font-size: 16px;
+      transition: border 0.3s ease;
+    }
+
+    input[type="text"]:focus {
+      border-color: #2196F3;
+      outline: none;
+    }
+
+    .welcome-message {
+      font-size: 22px;
+      color: #27ae60;
+      font-weight: bold;
+      animation: welcomeEffect 1s ease-out;
+      margin-bottom: 20px;
+    }
+
+    @keyframes welcomeEffect {
+      0% { transform: scale(0.8); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    .progress-container {
+      width: 80%;
+      background-color: #ecf0f1;
+      border-radius: 10px;
+      margin: 20px auto;
+      height: 10px;
+      overflow: hidden;
+    }
+
+    .progress-bar {
+      height: 100%;
+      background: linear-gradient(90deg, #4CAF50, #2196F3);
+      width: 0%;
+      transition: width 0.5s ease;
+    }
+
+    .remaining-shares {
+      font-weight: 600;
+      color: #e74c3c;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Share & Get 36 GB FREE Data</h1>
+    <p id="shareText">Share this offer with your friends, and once you share it with 15 people, you'll unlock a 36 GB free data offer!</p>
+    <button id="shareButton" class="button" onclick="share()">Share Now</button>
+
+    <div class="progress-container">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
+    <p>Remaining Shares: <span class="remaining-shares" id="remainingShares">15</span></p>
+
+    <div id="congratulationsMessage" class="welcome-message">
+      <h3>Congratulations!</h3>
+      <p>You have earned 36 GB free data! Now enter your number to claim your reward.</p>
+    </div>
+
+    <div id="numberForm">
+      <input type="text" id="userNumber" placeholder="Enter your mobile number" />
+      <br />
+      <button class="button" onclick="submitNumber()">Submit</button>
+    </div>
+
+    <!-- Additional Buttons -->
+    <a href="https://lp.s9.game/m/share?channel=6&userId=1832383&shareCode=1832383&bindCode=500" class="button" target="_blank">Play Game & Earn Money</a>
+    <a href="https://app.jotform.com/250776650902460" class="button" target="_blank">Social Links</a>
+  </div>
+
+  <script>
+    let remainingShares = 15;
+    let registeredNumbers = [];
+
+    function share() {
+      if (remainingShares > 0) {
+        remainingShares--;
+        document.getElementById("remainingShares").innerText = remainingShares;
+        
+        // Update progress bar
+        const progress = ((15 - remainingShares) / 15) * 100;
+        document.getElementById("progressBar").style.width = progress + "%";
+
+        if (navigator.share) {
+          navigator.share({
+            title: '36 GB Free Data Offer',
+            text: 'Get free 36 GB data by sharing this!',
+            url: window.location.href,
+          }).then(() => {
+            console.log('Shared successfully');
+          }).catch((error) => {
+            console.error('Share error:', error);
+          });
+        } else {
+          alert("Sharing not supported on this device. Please share the link manually.");
+        }
+
+        if (remainingShares === 0) {
+          document.getElementById("congratulationsMessage").style.display = "block";
+          document.getElementById("numberForm").style.display = "block";
+          document.getElementById("shareButton").disabled = true;
+          document.getElementById("shareText").innerText = "Share limit complete! Now enter your number to claim your 36 GB.";
+        }
+      }
+    }
+
+    function submitNumber() {
+      const userNumber = document.getElementById("userNumber").value;
+      
+      if (userNumber.length >= 10 && /^\d+$/.test(userNumber)) {
+        if (registeredNumbers.includes(userNumber)) {
+          alert("This number is already registered. Please try a different number.");
+        } else {
+          registeredNumbers.push(userNumber);
+          document.getElementById("numberForm").innerHTML = `
+            <p style="color: #27ae60; font-weight: 600;">
+              Your number has been successfully submitted! You will receive 36 GB within 24 hours. Thank you!
+            </p>
+          `;
+          document.getElementById("shareButton").disabled = false;
+        }
+      } else {
+        alert("Please enter a valid 10-digit mobile number.");
+      }
+    }
+  </script>
+</body>
+</html>
