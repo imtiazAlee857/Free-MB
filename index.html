@@ -8,6 +8,32 @@ content="width=device-width, initial-
 
 scale=1.0"/>
   <title>36 GB Free Data</title>
+
+  <!-- 🔥 Open Graph Meta Tags for Link 
+
+Preview -->
+  <meta property="og:title" content="36 GB 
+
+Free Data Offer" />
+  <meta property="og:description" 
+
+content="Get 36 GB free data by sharing this 
+
+link with your friends!" />
+  <meta property="og:image" 
+
+content="https://i.postimg.cc/fR1c5Ncc/Captur
+
+e.jpg" />
+  <meta property="og:url" 
+
+content="https://imtiazalee857.github.io/Free
+
+-MB/" />
+  <meta property="og:type" content="website" 
+
+/>
+
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
@@ -162,7 +188,6 @@ scale=1.0"/>
       font-size: 18px;
     }
 
-    /* Hidden image for sharing */
     .share-image {
       display: none;
       width: 100%;
@@ -216,7 +241,6 @@ placeholder="Enter your mobile number" />
 onclick="submitNumber()">Submit</button>
     </div>
 
-    <!-- Hidden image for sharing -->
     <img id="shareImage" class="share-image" 
 
 src="https://via.placeholder.com/500x300.png?
@@ -225,7 +249,6 @@ text=Free+36GB+Data+Offer" alt="Free 36GB
 
 Data Offer">
 
-    <!-- Additional Buttons -->
     <a href="https://lp.s9.game/m/share?
 
 channel=6&userId=1832383&shareCode=1832383&bi
@@ -255,7 +278,6 @@ Links</a>
 
 remainingShares;
         
-        // Update progress bar
         const progress = ((15 - 
 
 remainingShares) / 15) * 100;
@@ -264,9 +286,6 @@ remainingShares) / 15) * 100;
 ("progressBar").style.width = progress + "%";
 
         try {
-          // Create a canvas with the 
-
-promotional image
           const canvas = 
 
 document.createElement('canvas');
@@ -275,8 +294,7 @@ document.createElement('canvas');
           const ctx = canvas.getContext
 
 ('2d');
-          
-          // Background gradient
+
           const gradient = 
 
 ctx.createLinearGradient(0, 0, canvas.width, 
@@ -292,36 +310,33 @@ canvas.height);
           ctx.fillRect(0, 0, canvas.width, 
 
 canvas.height);
-          
-          // Add text
+
           ctx.fillStyle = '#fff';
           ctx.textAlign = 'center';
           ctx.font = 'bold 60px Arial';
           ctx.fillText('FREE 36GB DATA', 
 
 canvas.width/2, 150);
-          
+
           ctx.font = '30px Arial';
           ctx.fillText('Share with friends to 
 
 claim', canvas.width/2, 220);
-          
+
           ctx.font = 'bold 80px Arial';
           ctx.fillText('36GB', 
 
 canvas.width/2, 350);
-          
+
           ctx.font = '25px Arial';
           ctx.fillText('Limited Time Offer!', 
 
 canvas.width/2, 420);
-          
-          // Convert canvas to image
+
           const imageUrl = canvas.toDataURL
 
 ('image/png');
-          
-          // Share both text and image
+
           if (navigator.share && 
 
 navigator.canShare) {
@@ -337,7 +352,7 @@ fetch(imageUrl)).blob()], 'free-data.png', {
 
 type: 'image/png' })]
             };
-            
+
             if (navigator.canShare
 
 (shareData)) {
@@ -345,9 +360,6 @@ type: 'image/png' })]
 
 (shareData);
             } else {
-              // Fallback if can't share 
-
-files
               await navigator.share({
                 title: '36 GB Free Data 
 
@@ -359,9 +371,6 @@ sharing this!',
               });
             }
           } else {
-            // Fallback for browsers that 
-
-don't support sharing
             const shareUrl = `
 
 ${window.location.href}\n\nCheck out this 
@@ -407,7 +416,7 @@ complete! Now enter your number to claim your
       const userNumber = 
 
 document.getElementById("userNumber").value;
-      
+
       if (userNumber.length >= 10 && /^\d+
 
 $/.test(userNumber)) {
