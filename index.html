@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <meta name="viewport" 
 
 content="width=device-width, initial-
 
-scale=1.0"/>
-  <title>36 GB Free Data</title>
+scale=1.0">
+  <title>36 GB Free Data Offer</title>
   <style>
     body {
-      font-family: 'Segoe UI', sans-serif;
+      font-family: Arial, sans-serif;
       background: linear-gradient(135deg, 
 
-#f5f7fa 0%, #c3cfe2 100%);
+#f5f7fa, #c3cfe2);
       display: flex;
       justify-content: center;
       align-items: center;
@@ -22,298 +22,275 @@ scale=1.0"/>
       padding: 20px;
     }
     .container {
-      background: #fff;
+      background: white;
       padding: 30px;
-      border-radius: 20px;
-      box-shadow: 0 15px 35px rgba
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 
 
-(0,0,0,0.1);
-      width: 90%;
-      max-width: 500px;
+0.1);
       text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    .container::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
+      max-width: 500px;
       width: 100%;
-      height: 8px;
+    }
+    h1 {
+      color: #2c3e50;
+      font-size: 24px;
+    }
+    p {
+      color: #7f8c8d;
+      font-size: 16px;
+    }
+    .btn {
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      font-size: 16px;
+      border-radius: 50px;
+      cursor: pointer;
+      margin: 8px 0;
+      transition: 0.3s;
+      display: block;
+      width: 90%;
+      text-decoration: none;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .btn-whatsapp {
+      background: #25D366; /* WhatsApp Green 
+
+*/
+    }
+    .btn-game {
+      background: linear-gradient(90deg, 
+
+#FF512F, #DD2476);
+    }
+    .btn-social {
+      background: linear-gradient(90deg, 
+
+#4776E6, #8E54E9);
+    }
+    .btn-submit {
       background: linear-gradient(90deg, 
 
 #4CAF50, #2196F3);
+      width: 50% !important;
     }
-    h1 {
-      font-size: 28px;
-      color: #2c3e50;
-      margin-bottom: 15px;
-      font-weight: 600;
-    }
-    p {
-      font-size: 16px;
-      margin-bottom: 20px;
-      color: #34495e;
-      line-height: 1.6;
-    }
-    .button {
-      background: linear-gradient(145deg, 
-
-#2196F3, #4CAF50);
-      color: #fff;
-      padding: 14px 25px;
-      font-size: 18px;
-      border: none;
-      border-radius: 50px;
-      cursor: pointer;
-      margin: 12px 5px;
-      box-shadow: 0 5px 15px rgba(33, 150, 
-
-243, 0.3);
-      transition: all 0.3s ease;
-      display: inline-block;
-      text-decoration: none;
-      font-weight: 500;
-      min-width: 200px;
-    }
-    .whatsapp-button {
-      background: linear-gradient(145deg, 
-
-#25D366, #128C7E);
-    }
-    .button:hover {
+    .btn:hover {
       transform: translateY(-3px);
-      box-shadow: 0 8px 20px rgba(33, 150, 
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 
 
-243, 0.4);
-    }
-    .button:active {
-      transform: translateY(1px);
-    }
-    .button:disabled {
-      background: #95a5a6;
-      cursor: not-allowed;
-      transform: none;
-      box-shadow: none;
-    }
-    #congratulationsMessage, #numberForm {
-      display: none;
-      margin-top: 20px;
-    }
-    input[type="text"] {
-      padding: 12px 15px;
-      border-radius: 10px;
-      border: 2px solid #ecf0f1;
-      width: 80%;
-      margin: 15px 0;
-      font-size: 16px;
-      transition: border 0.3s ease;
-    }
-    input[type="text"]:focus {
-      border-color: #2196F3;
-      outline: none;
-    }
-    .welcome-message {
-      font-size: 22px;
-      color: #27ae60;
-      font-weight: bold;
-      animation: welcomeEffect 1s ease-out;
-      margin-bottom: 20px;
-    }
-    @keyframes welcomeEffect {
-      0% { transform: scale(0.8); opacity: 0; 
-
-}
-      100% { transform: scale(1); opacity: 1; 
-
-}
-    }
-    .progress-container {
-      width: 80%;
-      background-color: #ecf0f1;
-      border-radius: 10px;
-      margin: 20px auto;
-      height: 10px;
-      overflow: hidden;
+0.2);
     }
     .progress-bar {
+      width: 100%;
+      height: 10px;
+      background: #ecf0f1;
+      border-radius: 5px;
+      margin: 20px 0;
+    }
+    .progress {
       height: 100%;
       background: linear-gradient(90deg, 
 
 #4CAF50, #2196F3);
+      border-radius: 5px;
       width: 0%;
-      transition: width 0.5s ease;
+      transition: 0.5s;
     }
-    .remaining-shares {
-      font-weight: 600;
-      color: #e74c3c;
-      font-size: 18px;
+    #congrats {
+      display: none;
+      color: #27ae60;
+      font-weight: bold;
+    }
+    #numberForm {
+      display: none;
+      margin-top: 20px;
+    }
+    input {
+      padding: 10px 15px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      width: 80%;
+      margin: 10px 0;
+    }
+    #successMsg {
+      display: none;
+      color: #27ae60;
+      font-weight: bold;
+      margin-top: 15px;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>Share & Get 36 GB FREE Data</h1>
-    <p id="shareText">Share this offer with 
+    <h1>36 GB FREE Data Offer! 🎉</h1>
+    <p id="text">15 logo ko WhatsApp pe share 
 
-your friends on WhatsApp, and once you share 
-
-it with 15 people, you'll unlock a 36 GB free 
-
-data offer!</p>
+karo aur 36 GB FREE data pao!</p>
     
     <!-- WhatsApp Share Button -->
-    <button id="whatsappButton" class="button 
+    <button class="btn btn-whatsapp" 
 
-whatsapp-button" onclick="shareOnWhatsApp()">
-      Share on WhatsApp
+onclick="shareOnWhatsApp()">
+      WhatsApp Pe Share Karein
     </button>
-
-    <div class="progress-container">
-      <div class="progress-bar" 
-
-id="progressBar"></div>
-    </div>
-    <p>Remaining Shares: <span 
-
-class="remaining-shares" 
-
-id="remainingShares">15</span></p>
-
-    <div id="congratulationsMessage" 
-
-class="welcome-message">
-      <h3>Congratulations!</h3>
-      <p>You have earned 36 GB free data! Now 
-
-enter your number to claim your reward.</p>
-    </div>
-
-    <div id="numberForm">
-      <input type="text" id="userNumber" 
-
-placeholder="Enter your mobile number" />
-      <br />
-      <button class="button" 
-
-onclick="submitNumber()">Submit</button>
-    </div>
-
-    <!-- Additional Buttons -->
+    
+    <!-- Other Buttons -->
     <a href="https://lp.s9.game/m/share?
 
 channel=6&userId=1832383&shareCode=1832383&bi
 
-ndCode=500" class="button" 
-
-target="_blank">Play Game & Earn Money</a>
+ndCode=500" 
+       class="btn btn-game" target="_blank">
+      Game Khelo & Paisa Kamayo
+    </a>
+    
     <a 
 
 href="https://app.jotform.com/250776650902460
 
-" class="button" target="_blank">Social 
+" 
+       class="btn btn-social" 
 
-Links</a>
+target="_blank">
+      Social Links
+    </a>
+    
+    <div class="progress-bar">
+      <div class="progress" 
+
+id="progress"></div>
+    </div>
+    <p>Remaining Shares: <span 
+
+id="count">15</span></p>
+    
+    <div id="congrats">
+      <h3>Mubarak Ho! 🎊</h3>
+      <p>Ab apna mobile number daal ke 36 GB 
+
+FREE data claim karein.</p>
+    </div>
+    
+    <div id="numberForm">
+      <input type="text" id="mobile" 
+
+placeholder="03123456789">
+      <br>
+      <button class="btn btn-submit" 
+
+onclick="submitNumber()">Submit</button>
+    </div>
+    
+    <div id="successMsg"></div>
   </div>
 
   <script>
-    let remainingShares = 15;
-    let registeredNumbers = [];
-    const shareText = "Get free 36 GB data! 
+    let sharesLeft = 15;
+    const shareText = "Mere saath 36 GB FREE 
 
-Click this link: ";
-    const shareUrl = window.location.href;
+data offer ka faida uthao! 👇\n" + 
+
+window.location.href;
 
     function shareOnWhatsApp() {
-      // WhatsApp deep link
-      const whatsappLink = `https://wa.me/?
+      // WhatsApp pe share karne ka link
+      const whatsappUrl = `https://wa.me/?
 
-text=${encodeURIComponent(shareText + 
+text=${encodeURIComponent(shareText)}`;
+      
+      // Mobile/Desktop check
+      if (/Android|iPhone|iPad|iPod/i.test
 
-shareUrl)}`;
+(navigator.userAgent)) {
+        // Mobile pe WhatsApp app open karo
+        window.location.href = whatsappUrl;
+      } else {
+        // Desktop pe WhatsApp Web open karo
+        window.open
+
+(`https://web.whatsapp.com/send?text=
+
+${encodeURIComponent(shareText)}`, '_blank');
+      }
       
-      // Try to open WhatsApp
-      window.open(whatsappLink, '_blank');
-      
-      // Update share count
-      updateShareCount();
+      // Share count update karo
+      updateShare();
     }
 
-    function updateShareCount() {
-      if (remainingShares > 0) {
-        remainingShares--;
+    function updateShare() {
+      if (sharesLeft > 0) {
+        sharesLeft--;
         document.getElementById
 
-("remainingShares").innerText = 
-
-remainingShares;
+("count").textContent = sharesLeft;
         
-        // Update progress bar
-        const progress = ((15 - 
+        // Progress bar update
+        const progress = ((15 - sharesLeft) / 
 
-remainingShares) / 15) * 100;
+15) * 100;
         document.getElementById
 
-("progressBar").style.width = progress + "%";
-
-        if (remainingShares === 0) {
+("progress").style.width = progress + "%";
+        
+        // Agar 15 shares ho gaye
+        if (sharesLeft === 0) {
           document.getElementById
 
-("congratulationsMessage").style.display = 
-
-"block";
+("congrats").style.display = "block";
           document.getElementById
 
 ("numberForm").style.display = "block";
           document.getElementById
 
-("whatsappButton").disabled = true;
-          document.getElementById
+("text").textContent = "Aap ne 15 shares 
 
-("shareText").innerText = "Share limit 
-
-complete! Now enter your number to claim your 
-
-36 GB.";
+complete kar liye! Ab number submit karein.";
         }
       }
     }
 
     function submitNumber() {
-      const userNumber = 
+      const number = document.getElementById
 
-document.getElementById("userNumber").value;
-      
-      if (userNumber.length >= 10 && /^\d+
+("mobile").value;
+      if (number.length === 11 && /^03\d
 
-$/.test(userNumber)) {
-        if (registeredNumbers.includes
+{9}$/.test(number)) {
+        // SIM registered name (example)
+        const simNames = ["Ali Khan", "Fatima 
 
-(userNumber)) {
-          alert("This number is already 
+Ahmed", "Usman Malik", "Ayesha Raza"];
+        const randomName = simNames
 
-registered. Please try a different number.");
-        } else {
-          registeredNumbers.push(userNumber);
-          document.getElementById
+[Math.floor(Math.random() * 
 
-("numberForm").innerHTML = `
-            <p style="color: #27ae60; font-
+simNames.length)];
+        
+        // Success message with SIM name
+        document.getElementById
 
-weight: 600;">
-              Your number has been 
+("successMsg").innerHTML = `
+          <p>Dear <strong>${randomName}
 
-successfully submitted! You will receive 36 
+</strong>,</p>
+          <p>Thank you! Apko 24 ghanton mein 
 
-GB within 24 hours. Thank you!
-            </p>
-          `;
-        }
+36GB data receive ho jayega. Shukriya!</p>
+        `;
+        document.getElementById
+
+("successMsg").style.display = "block";
+        
+        // Hide form after submission
+        document.getElementById
+
+("numberForm").style.display = "none";
       } else {
-        alert("Please enter a valid 10-digit 
+        alert("Sahi mobile number daalein 
 
-mobile number.");
+(03123456789)");
       }
     }
   </script>
