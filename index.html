@@ -9,9 +9,7 @@ content="width=device-width, initial-
 scale=1.0"/>
   <title>36 GB Free Data</title>
 
-  <!-- 🔥 Open Graph Meta Tags for Link 
-
-Preview -->
+  <!-- Open Graph Meta Tags -->
   <meta property="og:title" content="36 GB 
 
 Free Data Offer" />
@@ -187,14 +185,6 @@ content="https://imtiazalee857.github.io/Free
       color: #e74c3c;
       font-size: 18px;
     }
-
-    .share-image {
-      display: none;
-      width: 100%;
-      max-width: 500px;
-      border-radius: 10px;
-      margin: 20px auto;
-    }
   </style>
 </head>
 <body>
@@ -241,14 +231,6 @@ placeholder="Enter your mobile number" />
 onclick="submitNumber()">Submit</button>
     </div>
 
-    <img id="shareImage" class="share-image" 
-
-src="https://via.placeholder.com/500x300.png?
-
-text=Free+36GB+Data+Offer" alt="Free 36GB 
-
-Data Offer">
-
     <a href="https://lp.s9.game/m/share?
 
 channel=6&userId=1832383&shareCode=1832383&bi
@@ -285,100 +267,23 @@ remainingShares) / 15) * 100;
 
 ("progressBar").style.width = progress + "%";
 
+        const shareData = {
+          title: "36 GB Free Data Offer",
+          text: "Get free 36 GB data by 
+
+sharing this!",
+          url: 
+
+"https://imtiazalee857.github.io/Free-MB/"
+        };
+
         try {
-          const canvas = 
-
-document.createElement('canvas');
-          canvas.width = 800;
-          canvas.height = 500;
-          const ctx = canvas.getContext
-
-('2d');
-
-          const gradient = 
-
-ctx.createLinearGradient(0, 0, canvas.width, 
-
-canvas.height);
-          gradient.addColorStop(0, 
-
-'#4CAF50');
-          gradient.addColorStop(1, 
-
-'#2196F3');
-          ctx.fillStyle = gradient;
-          ctx.fillRect(0, 0, canvas.width, 
-
-canvas.height);
-
-          ctx.fillStyle = '#fff';
-          ctx.textAlign = 'center';
-          ctx.font = 'bold 60px Arial';
-          ctx.fillText('FREE 36GB DATA', 
-
-canvas.width/2, 150);
-
-          ctx.font = '30px Arial';
-          ctx.fillText('Share with friends to 
-
-claim', canvas.width/2, 220);
-
-          ctx.font = 'bold 80px Arial';
-          ctx.fillText('36GB', 
-
-canvas.width/2, 350);
-
-          ctx.font = '25px Arial';
-          ctx.fillText('Limited Time Offer!', 
-
-canvas.width/2, 420);
-
-          const imageUrl = canvas.toDataURL
-
-('image/png');
-
-          if (navigator.share && 
-
-navigator.canShare) {
-            const shareData = {
-              title: '36 GB Free Data Offer',
-              text: 'Get free 36 GB data by 
-
-sharing this!',
-              url: window.location.href,
-              files: [new File([await (await 
-
-fetch(imageUrl)).blob()], 'free-data.png', { 
-
-type: 'image/png' })]
-            };
-
-            if (navigator.canShare
-
-(shareData)) {
-              await navigator.share
-
-(shareData);
-            } else {
-              await navigator.share({
-                title: '36 GB Free Data 
-
-Offer',
-                text: 'Get free 36 GB data by 
-
-sharing this!',
-                url: window.location.href
-              });
-            }
+          if (navigator.share) {
+            await navigator.share(shareData);
           } else {
-            const shareUrl = `
+            alert(`Share this manually:\n\n
 
-${window.location.href}\n\nCheck out this 
-
-free data offer!`;
-            alert(`Share this link:\n\n
-
-${shareUrl}\n\nAnd this image: ${imageUrl}`);
+${shareData.text}\n${shareData.url}`);
           }
         } catch (error) {
           console.error('Error sharing:', 
@@ -386,7 +291,7 @@ ${shareUrl}\n\nAnd this image: ${imageUrl}`);
 error);
           alert("Sharing failed. Please try 
 
-again or share manually.");
+again or copy the link manually.");
         }
 
         if (remainingShares === 0) {
